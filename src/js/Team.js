@@ -1,7 +1,7 @@
 export default class Team {
   constructor(name) {
     this.name = name;
-    this.teamList = [{
+    this.teamList = new Set([{
       name: 'Zombie',
       type: 'ZombieType',
       health: 50,
@@ -22,11 +22,11 @@ export default class Team {
       level: 1,
       attack: 40,
       defence: 10,
-    }];
+    }]);
   }
 
   [Symbol.iterator]() {
-    const team = this.teamList;
+    const team = Array.from(this.teamList);
     let currentIndex = -1;
     return {
       next() {
